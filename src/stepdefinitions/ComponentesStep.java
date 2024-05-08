@@ -5,7 +5,7 @@ import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import util.Compontentes;
 
-// Em estes utilizando Cucumber, a boa prática é não colocar lógica de programação aqui
+// Em testes utilizando Cucumber, a boa prática é não colocar lógica de programação aqui
 // a lógica fica em util e somente é chamada aqui
 public class ComponentesStep {
 
@@ -26,5 +26,18 @@ public class ComponentesStep {
         // dps de testar pela primeira vez, colocar o método fechaNavegador
         compontentes.validaTextField();
     }
+
+    @Quando("o usuário digitar batatinha batatinha batatinha")
+    public void o_usuário_digitar_batatinha_batatinha_batatinha() {
+        // Write code here that turns the phrase above into concrete actions
+        compontentes.testeTextArea();
+    }
+
+    @Entao("o resultado no campo textarea deve ser batatinha batatinha batatinha")
+    public void o_resultado_no_campo_textarea_deve_ser_batatinha_batatinha_batatinha() {
+        // Write code here that turns the phrase above into concrete actions
+        compontentes.validaTextArea();
+    }
+
 
 }

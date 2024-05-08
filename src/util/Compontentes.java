@@ -22,9 +22,16 @@ public class Compontentes {
         driver.findElement(By.id("elementosForm:nome")).sendKeys("Batatinha");
     }
 
-
     public void validaTextField(){
         Assert.assertEquals("Batatinha", driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
+    }
+
+    public  void testeTextArea(){
+        driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("batatinha\nbatatinha\nbatatinha");
+    }
+
+    public  void validaTextArea(){
+        Assert.assertEquals("batatinha\nbatatinha\nbatatinha",driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
     }
 
     public void fechaNavegador(){

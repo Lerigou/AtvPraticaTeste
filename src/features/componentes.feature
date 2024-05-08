@@ -6,3 +6,7 @@ Funcionalidade: Acessar vários componentes html
   Cenário: Validar campo textfield
     Quando o usuário digitar Batatinha
     Entao o resultado no campo textfield de ser Batatinha
+
+  Cenário: Validar campo textarea
+    Quando o usuário digitar batatinha batatinha batatinha
+    Entao o resultado no campo textarea deve ser batatinha batatinha batatinha
