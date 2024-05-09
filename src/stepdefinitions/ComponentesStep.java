@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import cucumber.api.java.fr.Quand;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
@@ -16,28 +17,51 @@ public class ComponentesStep {
         compontentes.incializa();
     }
 
-    @Quando("o usuário digitar Batatinha")
-    public void o_usuário_digitar_Batatinha() {
+    @Quando("o usuário digitar Batatinha no textfiled")
+    public void o_usuário_digitar_Batatinha_no_textfiled() {
         compontentes.testeTextField();
     }
 
-    @Entao("o resultado no campo textfield de ser Batatinha")
-    public void o_resultado_no_campo_textfield_de_ser_Batatinha() {
+    @Entao("o resultado no campo textfiled de ser Batatinha")
+    public void o_resultado_no_campo_textfiled_de_ser_Batatinha() {
         // dps de testar pela primeira vez, colocar o método fechaNavegador
         compontentes.validaTextField();
+        compontentes.fechaNavegador();
     }
 
-    @Quando("o usuário digitar batatinha batatinha batatinha")
-    public void o_usuário_digitar_batatinha_batatinha_batatinha() {
+    @Quando("o usuário digitar batatinha batatinha batatinha no textarea")
+    public void o_usuário_digitar_batatinha_batatinha_batatinha_no_textarea() {
         // Write code here that turns the phrase above into concrete actions
         compontentes.testeTextArea();
     }
 
-    @Entao("o resultado no campo textarea deve ser batatinha batatinha batatinha")
-    public void o_resultado_no_campo_textarea_deve_ser_batatinha_batatinha_batatinha() {
+    @Entao("o resultado no campo textarea de ser batatinha batatinha batatinha")
+    public void o_resultado_no_campo_textarea_de_ser_batatinha_batatinha_batatinha() {
         // Write code here that turns the phrase above into concrete actions
         compontentes.validaTextArea();
+        compontentes.fechaNavegador();
     }
 
+    @Quando("o usuário clicar no elemento radio")
+    public void o_usuário_clicar_no_elemento_radio(){
+        compontentes.testeRadio();
+    }
+
+    @Entao("o radio deve aparecer selecionado")
+    public void o_radio_deve_aparecer_selecionado(){
+        compontentes.validarRadio();
+        compontentes.fechaNavegador();
+    }
+
+    @Quando("o usuário clicar no elemento checkbox")
+    public void o_usuário_clicar_no_elemento_checkbox(){
+        compontentes.testeCheckbox();
+    }
+
+    @Entao("o checkbox deve aparecer selecionado")
+    public void o_checkbox_deve_aparecer_selecionado(){
+        compontentes.validarCheckbox();
+        compontentes.fechaNavegador();
+    }
 
 }

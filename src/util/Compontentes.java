@@ -26,12 +26,30 @@ public class Compontentes {
         Assert.assertEquals("Batatinha", driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
     }
 
-    public  void testeTextArea(){
-        driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("batatinha\nbatatinha\nbatatinha");
+    public void testeTextArea(){
+        driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("batatinha batatinha batatinha");
     }
 
-    public  void validaTextArea(){
-        Assert.assertEquals("batatinha\nbatatinha\nbatatinha",driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
+    public void validaTextArea(){
+        Assert.assertEquals("batatinha batatinha batatinha",driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
+    }
+
+    public void testeCheckbox(){
+        driver.findElement(By.id("elementosForm:comidaFavorita:1")).click();
+    }
+
+    public boolean validarCheckbox(){
+        Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:1")).isSelected());
+        return true;
+    }
+
+    public void testeRadio(){
+        driver.findElement(By.id("elementosForm:sexo:1")).click();
+    }
+
+    public boolean validarRadio(){
+        Assert.assertTrue(driver.findElement(By.id("elementosForm:sexo:1")).isSelected());
+        return true;
     }
 
     public void fechaNavegador(){
