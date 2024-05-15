@@ -3,7 +3,9 @@ package util;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class Compontentes {
 
@@ -50,6 +52,30 @@ public class Compontentes {
     public boolean validarRadio(){
         Assert.assertTrue(driver.findElement(By.id("elementosForm:sexo:1")).isSelected());
         return true;
+    }
+
+    public void testeDropdown(){
+        WebElement NatacaoSelect = driver.findElement(By.id("elementosForm:escolaridade"));
+
+        Select selectNatacao = new Select(NatacaoSelect);
+
+        selectNatacao.selectByValue("mestrado");
+    }
+
+    public void validarDropdown(){
+        Assert.assertEquals("mestrado", driver.findElement(By.id("elementosForm:escolaridade")).getAttribute("value"));
+    }
+
+    public void testeSelect(){
+        WebElement NatacaoSelect = driver.findElement(By.id("elementosForm:esportes"));
+
+        Select selectNatacao = new Select(NatacaoSelect);
+
+        selectNatacao.selectByValue("futebol");
+    }
+
+    public void validarSelect(){
+        Assert.assertEquals("futebol", driver.findElement(By.id("elementosForm:esportes")).getAttribute("value"));
     }
 
     public void fechaNavegador(){

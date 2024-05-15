@@ -64,4 +64,27 @@ public class ComponentesStep {
         compontentes.fechaNavegador();
     }
 
+    @Quando("o usuário selecionar mestrado")
+    public void o_usuário_selecionar_mestrado() {
+        compontentes.testeDropdown();
+    }
+
+    @Entao("o dropdown deve mostrar mestrado")
+    public void o_dropdown_deve_mostrar_mestrado() {
+        compontentes.validarDropdown();
+        compontentes.fechaNavegador();
+    }
+
+    @Quando("o usuário selecionar futebol")
+    public void usuário_selecionar_futebol() {
+        compontentes.testeSelect();
+    }
+
+    @Entao("o select deve mostrar futebol")
+    public void o_select_deve_mostrar_futebol() {
+        compontentes.validarSelect();
+        compontentes.fechaNavegador();
+    }
+
+
 }
