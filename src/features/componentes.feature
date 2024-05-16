@@ -41,3 +41,13 @@ Funcionalidade: Acessar vários componentes html
       |campo|
       |radio|
       |checkbox|
+
+    @validar_campo_dropdown
+    Cenario: Validar campo dropdown
+      Quando o usuário selecionar mestrado
+      Entao o dropdown deve mostrar mestrado
+
+    @validar_campo_select
+    Cenario: Validar campo select
+      Quando o usuário selecionar futebol
+      Entao o select deve mostrar futebol
