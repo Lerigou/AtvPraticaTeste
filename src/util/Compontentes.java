@@ -55,17 +55,12 @@ public class Compontentes {
     }
 
     public void testeDropdown(){
-//        WebElement escolaridadeCombobox = driver.findElement(By.id("elementosForm:escolaridade"));
-//        Select selectCombobox = new Select(escolaridadeCombobox);
-//        selectCombobox.selectByValue("mestrado");
         WebElement escolaridadeCombobox = driver.findElement(By.id("elementosForm:escolaridade"));
         Select select = new Select(escolaridadeCombobox);
         select.selectByIndex(6);
     }
 
     public void validarDropdown(){
-//        Assert.assertEquals("mestrado", driver.findElement(By.id("elementosForm:escolaridade")).getAttribute("value"));
-//        Assert.assertEquals("mestrado", driver.findElement(By.id("elementosForm:escolaridade")).
         Assert.assertEquals("Mestrado", new Select(driver.findElement(By.id("elementosForm:escolaridade"))).getFirstSelectedOption().getText());
     }
 
