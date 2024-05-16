@@ -55,11 +55,11 @@ public class Compontentes {
     }
 
     public void testeDropdown(){
-        WebElement NatacaoSelect = driver.findElement(By.id("elementosForm:escolaridade"));
+        WebElement escolaridadeCombobox = driver.findElement(By.id("elementosForm:escolaridade"));
 
-        Select selectNatacao = new Select(NatacaoSelect);
+        Select selectCombobox = new Select(escolaridadeCombobox);
 
-        selectNatacao.selectByValue("mestrado");
+        selectCombobox.selectByValue("mestrado");
     }
 
     public void validarDropdown(){
@@ -67,11 +67,11 @@ public class Compontentes {
     }
 
     public void testeSelect(){
-        WebElement NatacaoSelect = driver.findElement(By.id("elementosForm:esportes"));
+        WebElement esportesSelect = driver.findElement(By.id("elementosForm:esportes"));
 
-        Select selectNatacao = new Select(NatacaoSelect);
+        Select select = new Select(esportesSelect);
 
-        selectNatacao.selectByValue("futebol");
+        select.selectByValue("futebol");
     }
 
     public void validarSelect(){
