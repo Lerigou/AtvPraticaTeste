@@ -81,10 +81,39 @@ public class ComponentesStep {
     }
 
     @Entao("o select deve mostrar futebol")
-    public void o_select_deve_mostrar_futebol() {
-        compontentes.validarSelect();
-        compontentes.fechaNavegador();
+//    public void o_select_deve_mostrar_futebol() {
+//        compontentes.validarSelect();
+//        compontentes.fechaNavegador();
+//    }
+
+    @Quando("o usuário <opção> um valor no elemento combo de multipla escolha")
+    public void o_usuário_opção_um_valor_no_elemento_combo_de_multipla_escolha() {
+        compontentes.testeSelect();
     }
 
+//    @Entao("o valor deve aparecer selecionado no elemento combo de multipla escolha")
+//    public void o_valor_deve_aparecer_selecionado_no_elemento_combo_de_multipla_escolha() {
+//
+//    }
+
+    @Quando("o usuário clicar no botão")
+    public void o_usuário_clicar_no_botão() {
+        compontentes.testeButtonTks();
+    }
+
+    @Entao("o label deve alterar para Obrigado!")
+    public void o_label_deve_alterar_para_Obrigado() {
+        compontentes.validarButtonTks();
+    }
+
+    @Quando("o usuário clicar no link")
+    public void o_usuário_clicar_no_link() {
+        compontentes.testeLink();
+    }
+
+    @Entao("o status deve alterar para {string}")
+    public void o_status_deve_alterar_para(String string) {
+        compontentes.validarLink();
+    }
 
 }

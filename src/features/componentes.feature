@@ -51,3 +51,22 @@ Funcionalidade: Acessar vários componentes html
     Cenario: Validar campo select
       Quando o usuário selecionar futebol
       Entao o select deve mostrar futebol
+
+    @validar_campo_select_multipla_escolha
+    Esquema do Cenario: Validar elemento Como Múltipla Escolha
+      Quando o usuário <opção> um valor no elemento combo de multipla escolha
+      Entao o valor deve aparecer <resultado> no elemento combo de multipla escolha
+      Exemplos:
+      |opcao|resultado|
+      |selecionar|selecionado|
+      |desselecionar|selecionado|
+
+      @validar_alteração_de_label_do_botão
+      Cenario: Validar alteração de label do botão
+        Quando o usuário clicar no botão
+        Entao o label deve alterar para Obrigado!
+
+      @validar_alteração_de_status_do_link
+      Cenario: Validar alteração de Status do link
+        Quando o usuário clicar no link
+        Entao o status deve alterar para "Voltou!"

@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class Compontentes {
 
     private WebDriver driver;
@@ -67,11 +69,38 @@ public class Compontentes {
     public void testeSelect(){
         WebElement esportesSelect = driver.findElement(By.id("elementosForm:esportes"));
         Select select = new Select(esportesSelect);
-        select.selectByValue("futebol");
+        select.selectByVisibleText("futebol");
+        select.selectByVisibleText("natacao");
+        select.selectByVisibleText("karate");
+//      testar com o selectByValue
+//        List<WebElement> selectedOptionList = select.getAllSelectedOptions();
     }
 
-    public void validarSelect(){
-        Assert.assertEquals("futebol", driver.findElement(By.id("elementosForm:esportes")).getAttribute("value"));
+//    public void validarSelect(){
+//        List<WebElement> selectedOptionList = select.getAllSelectedOptions();
+//        Assert.assertEquals("futebol", driver.findElement(By.id("elementosForm:esportes"))
+//                .getAttribute("value"));
+//    }
+//
+//    public void testeSelectMultiplo(){
+//
+//    }
+
+    public void testeButtonTks(){
+        driver.findElement(By.id("buttonSimple")).click();
+    }
+
+    public void validarButtonTks(){
+        Assert.assertEquals("Obrigado!", driver.findElement(By.id("buttonSimple")).getAttribute("value"));
+    }
+
+    public void testeLink(){
+//        driver.findElement(By.tagName("a")).click();
+        driver.findElement(By.linkText("Voltar")).click();
+    }
+
+    public void validarLink(){
+        Assert.assertEquals("Voltou!", driver.findElement(By.id("resultado")).getText());
     }
 
     public void fechaNavegador(){
