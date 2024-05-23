@@ -104,6 +104,7 @@ public class ComponentesStep {
     @Entao("o label deve alterar para Obrigado!")
     public void o_label_deve_alterar_para_Obrigado() {
         compontentes.validarButtonTks();
+        compontentes.fechaNavegador();
     }
 
     @Quando("o usuário clicar no link")
@@ -114,6 +115,7 @@ public class ComponentesStep {
     @Entao("o status deve alterar para {string}")
     public void o_status_deve_alterar_para(String string) {
         compontentes.validarLink();
+        compontentes.fechaNavegador();
     }
 
 }
