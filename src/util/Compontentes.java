@@ -24,19 +24,27 @@ public class Compontentes {
     }
 
     public void testeTextField(){
-        driver.findElement(By.id("elementosForm:nome")).sendKeys("Batatinha");
+        driver.findElement(By.id("elementosForm:nome")).sendKeys("Marcia");
     }
 
     public void validaTextField(){
-        Assert.assertEquals("Batatinha", driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
+        Assert.assertEquals("Marcia", driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
+    }
+
+    public void testeTextFieldSobrenome(){
+        driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Ravadelli");
+    }
+
+    public void validaTextFieldSobrenome(){
+        Assert.assertEquals("Ravadelli", driver.findElement(By.id("elementosForm:sobrenome")).getAttribute("value"));
     }
 
     public void testeTextArea(){
-        driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("batatinha batatinha batatinha");
+        driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("Não tenho sugestões");
     }
 
     public void validaTextArea(){
-        Assert.assertEquals("batatinha batatinha batatinha",driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
+        Assert.assertEquals("Não tenho sugestões",driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
     }
 
     public void testeCheckbox(){
@@ -60,18 +68,18 @@ public class Compontentes {
     public void testeDropdown(){
         WebElement escolaridadeCombobox = driver.findElement(By.id("elementosForm:escolaridade"));
         Select select = new Select(escolaridadeCombobox);
-        select.selectByIndex(6);
+        select.selectByIndex(4);
     }
 
     public void validarDropdown() {
-        Assert.assertEquals("Mestrado", new Select(driver.findElement(By.id("elementosForm:escolaridade"))).getFirstSelectedOption().getText());
+        Assert.assertEquals("Superior", new Select(driver.findElement(By.id("elementosForm:escolaridade"))).getFirstSelectedOption().getText());
     }
 
 
     public void testeSelect(){
-        WebElement elemento = driver.findElement(By.id("elementosForm:esportes"));
-        combo = new Select(elemento);
-        combo.selectByVisibleText("O que eh esporte?");
+        WebElement esportesCombobox = driver.findElement(By.id("elementosForm:esportes"));
+        combo = new Select(esportesCombobox);
+        combo.selectByVisibleText("Corrida");
     }
 
     public void validarSelect(){
@@ -79,16 +87,21 @@ public class Compontentes {
         Assert.assertEquals(1, allSelectOptions.size());
     }
 
-    public void testeSelectMultiplo(){
-
-    }
-
     public void testeButtonTks(){
-        driver.findElement(By.id("buttonSimple")).click();
+        driver.findElement(By.id("elementosForm:cadastrar")).click();
     }
 
     public void validarButtonTks(){
         Assert.assertEquals("Obrigado!", driver.findElement(By.id("buttonSimple")).getAttribute("value"));
+    }
+
+    public void testeButtonCadastro(){
+        driver.findElement(By.id("elementosForm:cadastrar")).click();
+    }
+
+    public void validarButtonCadastro(){
+// aqui eu digo se o resultado é diferente de Status: Nao cadastrado
+        Assert.assertNotEquals("Status: Nao cadastrado", driver.findElement(By.id("resultado")).getText());
     }
 
     public void testeLink(){
@@ -102,5 +115,19 @@ public class Compontentes {
 
     public void fechaNavegador(){
         driver.quit();
+    }
+
+//    Trabalho avaliativo
+    public void validarCadastro(){
+        String resultado = driver.findElement(By.id("resultado")).getText();
+        Assert.assertTrue("O cadastro não foi realizado corretamente.", resultado.contains("Cadastrado!"));
+
+        Assert.assertTrue(resultado.contains("Nome: Marcia"));
+        Assert.assertTrue(resultado.contains("Sobrenome: Ravadelli"));
+        Assert.assertTrue(resultado.contains("Sexo: Feminino"));
+        Assert.assertTrue(resultado.contains("Comida: Frango"));
+        Assert.assertTrue(resultado.contains("Escolaridade: superior"));
+        Assert.assertTrue(resultado.contains("Esportes: Corrida"));
+        Assert.assertTrue(resultado.contains("Sugestoes: Não tenho sugestões"));
     }
 }

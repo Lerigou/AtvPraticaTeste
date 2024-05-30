@@ -108,4 +108,35 @@ public class ComponentesStep {
         compontentes.fechaNavegador();
     }
 
+//    Trabalho avaliativo
+    @Dado("que o usuário preencheu os campos nome, sobrenome, sexo, comida preferida, escolaridade, esporte praticado e sugestão")
+    public void que_o_usuário_preencheu_os_campos_nome_sobrenome_sexo_comida_preferida_escolaridade_esporte_praticado_e_sugestão() {
+        // aqui eu só escrevo nos campos
+        compontentes.testeTextField();
+        compontentes.testeTextFieldSobrenome();
+        compontentes.testeRadio();
+        compontentes.testeCheckbox();
+        compontentes.testeDropdown();
+        compontentes.testeSelect();
+        compontentes.testeTextArea();
+    }
+
+    @Dado("clicou no botão Cadastrar")
+    public void clicou_no_botão_Cadastrar() {
+        // aqui eu mando ele clicar no botão
+        compontentes.testeButtonCadastro();
+    }
+
+    @Quando("o botão Cadastrar for clicado")
+    public void o_botão_Cadastrar_for_clicado() {
+        compontentes.validarButtonCadastro();
+    }
+
+    @Entao("as informações devem ser validadas e mostradas ao final da página")
+    public void as_informações_devem_ser_validadas_e_mostradas_ao_final_da_página() {
+        compontentes.validarCadastro();
+        compontentes.fechaNavegador();
+    }
+
+
 }
