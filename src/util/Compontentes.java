@@ -12,6 +12,7 @@ import java.util.List;
 public class Compontentes {
 
     private WebDriver driver;
+    public Select combo;
 
     public void incializa(){
         String chromeDriver = System.getProperty("user.dir") + "/Drivers/chromedriver.exe";
@@ -62,29 +63,25 @@ public class Compontentes {
         select.selectByIndex(6);
     }
 
-    public void validarDropdown(){
+    public void validarDropdown() {
         Assert.assertEquals("Mestrado", new Select(driver.findElement(By.id("elementosForm:escolaridade"))).getFirstSelectedOption().getText());
     }
 
+
     public void testeSelect(){
-        WebElement esportesSelect = driver.findElement(By.id("elementosForm:esportes"));
-        Select select = new Select(esportesSelect);
-        select.selectByVisibleText("futebol");
-        select.selectByVisibleText("natacao");
-        select.selectByVisibleText("karate");
-//      testar com o selectByValue
-//        List<WebElement> selectedOptionList = select.getAllSelectedOptions();
+        WebElement elemento = driver.findElement(By.id("elementosForm:esportes"));
+        combo = new Select(elemento);
+        combo.selectByVisibleText("O que eh esporte?");
     }
 
-//    public void validarSelect(){
-//        List<WebElement> selectedOptionList = select.getAllSelectedOptions();
-//        Assert.assertEquals("futebol", driver.findElement(By.id("elementosForm:esportes"))
-//                .getAttribute("value"));
-//    }
-//
-//    public void testeSelectMultiplo(){
-//
-//    }
+    public void validarSelect(){
+        List<WebElement> allSelectOptions = combo.getAllSelectedOptions();
+        Assert.assertEquals(1, allSelectOptions.size());
+    }
+
+    public void testeSelectMultiplo(){
+
+    }
 
     public void testeButtonTks(){
         driver.findElement(By.id("buttonSimple")).click();
