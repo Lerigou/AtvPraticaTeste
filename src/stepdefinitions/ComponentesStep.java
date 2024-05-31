@@ -180,7 +180,42 @@ public class ComponentesStep {
 
     @Entao("a página deve verificar se a mensagem não é mais apresentada")
     public void a_página_deve_verificar_se_a_mensagem_não_é_mais_apresentada() {
-        compontentes.validarAlertClosed();
+        compontentes.validarAlertsClosed();
+    }
+
+    @Dado("que o usuario clicou no botão confirm")
+    public void que_o_usuario_clicou_no_botão_confirm() {
+        compontentes.testeButtonConfirm();
+    }
+
+    @Dado("a mensagem for Confirm Simples")
+    public void a_mensagem_for_Confirm_Simples() {
+        compontentes.validarButtonConfirm();
+    }
+
+    @Quando("o usuario clicar em Ok")
+    public void o_usuario_clicar_em_Ok() {
+        compontentes.validarAcceptButtonConfirm();
+    }
+
+    @Entao("verificar se a mensagem que aparece é Confirmado")
+    public void verificar_se_a_mensagem_que_aparece_é_Confirmado() {
+        compontentes.validarOkText();
+    }
+
+    @Quando("o usuario clicar em Cancelar")
+    public void o_usuario_clicar_em_Cancelar() {
+        compontentes.validarDismissButtonConfirm();
+    }
+
+    @Entao("verificar se a mensagem que aparece é Negado")
+    public void verificar_se_a_mensagem_que_aparece_é_Negado() {
+        compontentes.validarCancelarText();
+    }
+
+    @Entao("a página deve verificar se o alert de confirmação não é mais apresentada")
+    public void a_página_deve_verificar_se_o_alert_de_confirmação_não_é_mais_apresentada() {
+        compontentes.validarAlertsClosed();
     }
 
 

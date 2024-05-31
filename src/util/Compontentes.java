@@ -158,7 +158,7 @@ public class Compontentes {
         alert.accept();
     }
 
-    public boolean validarAlertClosed(){
+    public boolean validarAlertsClosed(){
         try {
             driver.switchTo().alert();
             return true;
@@ -166,4 +166,35 @@ public class Compontentes {
             return false;
         }
     }
+
+    public void testeButtonConfirm(){
+        driver.findElement(By.id("confirm")).click();
+    }
+
+    public void validarButtonConfirm(){
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals("Confirm Simples", alert.getText());
+    }
+
+    public void validarAcceptButtonConfirm(){
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
+
+    public void validarOkText(){
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals("Confirmado", alert.getText());
+    }
+
+    public void validarDismissButtonConfirm(){
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
+    }
+
+    public void validarCancelarText(){
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals("Negado", alert.getText());
+    }
+
+
 }

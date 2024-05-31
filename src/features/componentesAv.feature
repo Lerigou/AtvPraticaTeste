@@ -28,3 +28,15 @@ Funcionalidade: Interagir com vários componentes html
     Quando o usuário clicar em Ok
     Entao a página deve verificar se a mensagem não é mais apresentada
 
+  @validar_botão_confirm
+  Esquema do Cenario: validar botão confirm
+    Dado que o usuario clicou no botão confirm
+    E a mensagem for Confirm Simples
+    Quando o usuario clicar em <opção>
+    Entao verificar se a mensagem que aparece é <mensagem>
+    E a página deve verificar se o alert de confirmação não é mais apresentada
+    Exemplos:
+    |opção   |mensagem  |
+    |Ok      |Confirmado|
+    |Cancelar|Negado    |
+
