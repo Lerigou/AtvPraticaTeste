@@ -218,6 +218,47 @@ public class ComponentesStep {
         compontentes.validarAlertsClosed();
     }
 
+    @Dado("que o usuário clicou no botão prompt")
+    public void que_o_usuário_clicou_no_botão_prompt() {
+        compontentes.testeButtonPrompt();
+    }
+
+    @Dado("digitar um número na caixa de texto")
+    public void digitar_um_número_na_caixa_de_texto() {
+        compontentes.validarButtonPrompt();
+    }
+
+    @Quando("o usuário clicar em Ok no prompt")
+    public void o_usuário_clicar_em_Ok_no_prompt() {
+        compontentes.validarButtonOkPrompt();
+    }
+
+
+    @Entao("a página deve verificar se a mensagem que aparece corresponde ao número digitado")
+    public void a_página_deve_verificar_se_a_mensagem_que_aparece_corresponde_ao_número_digitado() {
+        compontentes.validarTextoPrompt();
+    }
+
+    @Entao("clicou novamente em Ok")
+    public void clicou_novamente_em_Ok() {
+        compontentes.validarButtonOkPrompt();
+    }
+
+    @Entao("verificou se a mensagem apresentada é :D")
+    public void verificou_se_a_mensagem_apresentada_é_D() {
+        compontentes.validarTexto2Prompt();
+    }
+
+    @Entao("clicar novamente em Ok")
+    public void clicar_novamente_em_Ok() {
+        compontentes.validarButtonOkPrompt();
+    }
+
+    @Entao("a mensagem com o número informado não é mais apresentada")
+    public void a_mensagem_com_o_número_informado_não_é_mais_apresentada() {
+        compontentes.validarAlertsClosed();
+    }
+
 
     @After
     public void sair(){

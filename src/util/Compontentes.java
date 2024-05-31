@@ -196,5 +196,29 @@ public class Compontentes {
         Assert.assertEquals("Negado", alert.getText());
     }
 
+    public void testeButtonPrompt(){
+        driver.findElement(By.id("prompt")).click();
+    }
+
+    public void validarButtonPrompt(){
+        Alert alert = driver.switchTo().alert();
+        alert.sendKeys("2");
+    }
+
+    public void validarButtonOkPrompt(){
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
+
+    public void validarTextoPrompt(){
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals("Era 2?", alert.getText());
+    }
+
+    public void validarTexto2Prompt(){
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals(":D", alert.getText());
+    }
+
 
 }

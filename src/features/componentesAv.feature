@@ -40,3 +40,13 @@ Funcionalidade: Interagir com vários componentes html
     |Ok      |Confirmado|
     |Cancelar|Negado    |
 
+  @validar_botão_prompt
+  Cenario: validar botão prompt
+    Dado que o usuário clicou no botão prompt
+    E digitar um número na caixa de texto
+    Quando o usuário clicar em Ok no prompt
+    Entao a página deve verificar se a mensagem que aparece corresponde ao número digitado
+    E clicou novamente em Ok
+    E verificou se a mensagem apresentada é :D
+    E clicar novamente em Ok
+    Entao a mensagem com o número informado não é mais apresentada
