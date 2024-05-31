@@ -163,6 +163,27 @@ public class ComponentesStep {
         compontentes.validarCampoSexo();
     }
 
+    @Dado("que o usuario clicou no botão alert")
+    public void que_o_usuario_clicou_no_botão_alert() {
+        compontentes.testeButtonAlert();
+    }
+
+    @Dado("a mensagem for Alert Simples")
+    public void a_mensagem_for_Alert_Simples() {
+        compontentes.validarButtonAlert();
+    }
+
+    @Quando("o usuário clicar em Ok")
+    public void o_usuário_clicar_em_Ok() {
+        compontentes.validarAcceptButtonAlert();
+    }
+
+    @Entao("a página deve verificar se a mensagem não é mais apresentada")
+    public void a_página_deve_verificar_se_a_mensagem_não_é_mais_apresentada() {
+        compontentes.validarAlertClosed();
+    }
+
+
     @After
     public void sair(){
         compontentes.fechaNavegador();

@@ -20,3 +20,11 @@ Funcionalidade: Interagir com vários componentes html
       |nome     |
       |sobrenome|
       |sexo     |
+
+  @validar_botão_alert
+  Cenario: validar botão alert
+    Dado que o usuario clicou no botão alert
+    E a mensagem for Alert Simples
+    Quando o usuário clicar em Ok
+    Entao a página deve verificar se a mensagem não é mais apresentada
+

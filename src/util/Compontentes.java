@@ -1,10 +1,7 @@
 package util;
 
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -145,5 +142,28 @@ public class Compontentes {
         Alert alert = driver.switchTo().alert();
         Assert.assertEquals("Sexo eh obrigatorio", alert.getText());
         alert.accept();
+    }
+
+    public void testeButtonAlert(){
+        driver.findElement(By.id("alert")).click();
+    }
+
+    public void validarButtonAlert(){
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals("Alert Simples", alert.getText());
+    }
+
+    public void validarAcceptButtonAlert(){
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
+
+    public boolean validarAlertClosed(){
+        try {
+            driver.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException e) {
+            return false;
+        }
     }
 }
