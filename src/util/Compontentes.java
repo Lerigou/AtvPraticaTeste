@@ -1,6 +1,7 @@
 package util;
 
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -75,7 +76,6 @@ public class Compontentes {
         Assert.assertEquals("Superior", new Select(driver.findElement(By.id("elementosForm:escolaridade"))).getFirstSelectedOption().getText());
     }
 
-
     public void testeSelect(){
         WebElement esportesCombobox = driver.findElement(By.id("elementosForm:esportes"));
         combo = new Select(esportesCombobox);
@@ -100,12 +100,10 @@ public class Compontentes {
     }
 
     public void validarButtonCadastro(){
-// aqui eu digo se o resultado é diferente de Status: Nao cadastrado
         Assert.assertNotEquals("Status: Nao cadastrado", driver.findElement(By.id("resultado")).getText());
     }
 
     public void testeLink(){
-//        driver.findElement(By.tagName("a")).click();
         driver.findElement(By.linkText("Voltar")).click();
     }
 
@@ -129,5 +127,23 @@ public class Compontentes {
         Assert.assertTrue(resultado.contains("Escolaridade: superior"));
         Assert.assertTrue(resultado.contains("Esportes: Corrida"));
         Assert.assertTrue(resultado.contains("Sugestoes: Não tenho sugestões"));
+    }
+
+    public void validarCampoNome(){
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals("Nome eh obrigatorio", alert.getText());
+        alert.accept();
+    }
+
+    public void validarCampoSobrenome(){
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals("Sobrenome eh obrigatorio", alert.getText());
+        alert.accept();
+    }
+
+    public void validarCampoSexo(){
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals("Sexo eh obrigatorio", alert.getText());
+        alert.accept();
     }
 }

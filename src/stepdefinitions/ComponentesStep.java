@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import cucumber.api.java.After;
 import cucumber.api.java.fr.Quand;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -26,7 +27,6 @@ public class ComponentesStep {
     public void o_resultado_no_campo_textfiled_de_ser_Batatinha() {
         // dps de testar pela primeira vez, colocar o método fechaNavegador
         compontentes.validaTextField();
-        compontentes.fechaNavegador();
     }
 
     @Quando("o usuário digitar batatinha batatinha batatinha no textarea")
@@ -39,7 +39,6 @@ public class ComponentesStep {
     public void o_resultado_no_campo_textarea_de_ser_batatinha_batatinha_batatinha() {
         // Write code here that turns the phrase above into concrete actions
         compontentes.validaTextArea();
-        compontentes.fechaNavegador();
     }
 
     @Quando("o usuário clicar no elemento radio")
@@ -50,7 +49,6 @@ public class ComponentesStep {
     @Entao("o radio deve aparecer selecionado")
     public void o_radio_deve_aparecer_selecionado(){
         compontentes.validarRadio();
-        compontentes.fechaNavegador();
     }
 
     @Quando("o usuário clicar no elemento checkbox")
@@ -61,7 +59,6 @@ public class ComponentesStep {
     @Entao("o checkbox deve aparecer selecionado")
     public void o_checkbox_deve_aparecer_selecionado(){
         compontentes.validarCheckbox();
-        compontentes.fechaNavegador();
     }
 
     @Quando("o usuário selecionar mestrado")
@@ -72,7 +69,6 @@ public class ComponentesStep {
     @Entao("o dropdown deve mostrar mestrado")
     public void o_dropdown_deve_mostrar_mestrado() {
         compontentes.validarDropdown();
-        compontentes.fechaNavegador();
     }
 
     @Quando("o usuário <opção> um valor no elemento combo de multipla escolha")
@@ -83,7 +79,6 @@ public class ComponentesStep {
     @Entao("o valor deve aparecer selecionado no elemento combo de multipla escolha")
     public void o_valor_deve_aparecer_selecionado_no_elemento_combo_de_multipla_escolha() {
         compontentes.validarSelect();
-        compontentes.fechaNavegador();
     }
 
     @Quando("o usuário clicar no botão")
@@ -94,7 +89,6 @@ public class ComponentesStep {
     @Entao("o label deve alterar para Obrigado!")
     public void o_label_deve_alterar_para_Obrigado() {
         compontentes.validarButtonTks();
-        compontentes.fechaNavegador();
     }
 
     @Quando("o usuário clicar no link")
@@ -105,7 +99,6 @@ public class ComponentesStep {
     @Entao("o status deve alterar para {string}")
     public void o_status_deve_alterar_para(String string) {
         compontentes.validarLink();
-        compontentes.fechaNavegador();
     }
 
 //    Trabalho avaliativo
@@ -135,8 +128,44 @@ public class ComponentesStep {
     @Entao("as informações devem ser validadas e mostradas ao final da página")
     public void as_informações_devem_ser_validadas_e_mostradas_ao_final_da_página() {
         compontentes.validarCadastro();
-        compontentes.fechaNavegador();
     }
 
+    @Quando("o nome estiver vazio")
+    public void o_nome_estiver_vazio() {
+        compontentes.testeButtonCadastro();
+    }
+
+    @Entao("a página deve mostrar um alert indicando a obrigatoriedade do campo nome")
+    public void a_página_deve_mostrar_um_alert_indicando_a_obrigatoriedade_do_campo_nome() {
+        compontentes.validarCampoNome();
+    }
+
+    @Quando("o sobrenome estiver vazio")
+    public void o_sobrenome_estiver_vazio() {
+        compontentes.testeTextField();
+        compontentes.testeButtonCadastro();
+    }
+
+    @Entao("a página deve mostrar um alert indicando a obrigatoriedade do campo sobrenome")
+    public void a_página_deve_mostrar_um_alert_indicando_a_obrigatoriedade_do_campo_sobrenome() {
+        compontentes.validarCampoSobrenome();
+    }
+
+    @Quando("o sexo estiver vazio")
+    public void o_sexo_estiver_vazio() {
+        compontentes.testeTextField();
+        compontentes.testeTextFieldSobrenome();
+        compontentes.testeButtonCadastro();
+    }
+
+    @Entao("a página deve mostrar um alert indicando a obrigatoriedade do campo sexo")
+    public void a_página_deve_mostrar_um_alert_indicando_a_obrigatoriedade_do_campo_sexo() {
+        compontentes.validarCampoSexo();
+    }
+
+    @After
+    public void sair(){
+        compontentes.fechaNavegador();
+    }
 
 }
