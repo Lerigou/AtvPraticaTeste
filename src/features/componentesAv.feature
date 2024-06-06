@@ -54,4 +54,4 @@ Funcionalidade: Interagir com vários componentes html
     E clicou novamente em Ok
     E verificou se a mensagem apresentada é :D
     E clicar novamente em Ok
-    E a mensagem com o número informado não é mais apresentada
+    Entao a mensagem com o número informado não é mais apresentada

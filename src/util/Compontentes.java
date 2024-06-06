@@ -21,6 +21,10 @@ public class Compontentes {
         driver.get("file:///" + System.getProperty("user.dir") + "/Drivers/componentes.html");
     }
 
+    public void fechaNavegador(){
+        driver.quit();
+    }
+
     public void testeTextField(){
         driver.findElement(By.id("elementosForm:nome")).sendKeys("Marcia");
     }
@@ -106,10 +110,6 @@ public class Compontentes {
 
     public void validarLink(){
         Assert.assertEquals("Voltou!", driver.findElement(By.id("resultado")).getText());
-    }
-
-    public void fechaNavegador(){
-        driver.quit();
     }
 
 //    Trabalho avaliativo
