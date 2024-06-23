@@ -94,10 +94,10 @@ public class ComponentesStep {
     public void o_status_deve_alterar_para(String string) {
         componentes.validarLink();
     }
-
-    @After
-    public void sair(){
-        componentes.fechaNavegador();
-    }
+//
+//    @After
+//    public void sair(){
+//        componentes.fechaNavegador();
+//    }
 
 }

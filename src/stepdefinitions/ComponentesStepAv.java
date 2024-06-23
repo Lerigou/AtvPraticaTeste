@@ -171,7 +171,7 @@ public class ComponentesStepAv {
     }
 
     @After
-    public void sair(){
+    public void sairdogoogle(){
         componentes.fechaNavegador();
     }
 }
